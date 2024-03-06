@@ -3,9 +3,9 @@
         <Title>Welcome page</Title>
     </head>
     <body>
-        <div>
-            Welcome page!!!
-            Login: ${name}
-        </div>
+        <div>Welcome ${name}</div>
+        <hr>
+        <div><a href="list-todos">Manage</a> your todos</div>
+
     </body>
 </html>
