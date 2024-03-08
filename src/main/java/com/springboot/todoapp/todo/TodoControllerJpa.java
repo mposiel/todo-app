@@ -22,8 +22,7 @@ public class TodoControllerJpa {
     private TodoRepository todoRepository;
 
     public TodoControllerJpa(TodoService todoService, TodoRepository todoRepository) {
-        super();
-        this.todoRepository = todoRepository;
+        super()this.todoRepository = todoRepository;
     }
 
     @RequestMapping("list-todos")
