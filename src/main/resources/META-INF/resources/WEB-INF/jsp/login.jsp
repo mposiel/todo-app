@@ -26,6 +26,7 @@
                    value="${_csrf.token}"/>
         </div>
     </form>
+    <p class="text-center">Don't have an account? <a href="<c:url value='/register' />">Register</a></p>
     <!-- Display error message if it exists -->
     <c:if test="${not empty error}">
         <div class="alert alert-danger">${error}</div>
