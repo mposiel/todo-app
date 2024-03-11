@@ -64,10 +64,10 @@ public class SpringSecurityConfiguration {
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
         http
                 .authorizeHttpRequests((authorize) -> authorize
-                        .requestMatchers("/login", "/WEB-INF/jsp/login.jsp", "/register", "/WEB-INF/jsp/register.jsp", "/WEB-INF/jsp/common/header.jspf").permitAll()
+                        .requestMatchers("/login", "/WEB-INF/jsp/login.jsp", "/register", "/WEB-INF/jsp/register.jsp", "/WEB-INF/jsp/common/header.jspf", "/WEB-INF/jsp/common/footer.jspf").permitAll()
                         .anyRequest().authenticated()
                 ).formLogin(login -> login.loginPage("/login")
-                        .defaultSuccessUrl("/todos", true)
+                        .defaultSuccessUrl("/", true)
                         .permitAll()
                 ).logout(LogoutConfigurer::permitAll);
 

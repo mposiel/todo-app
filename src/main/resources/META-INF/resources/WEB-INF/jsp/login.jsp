@@ -22,8 +22,14 @@
         </div>
         <div class="form-group">
             <input type="submit" value="Login" class="btn btn-primary">
+            <input type="hidden" name="${_csrf.parameterName}"
+                   value="${_csrf.token}"/>
         </div>
     </form>
+    <!-- Display error message if it exists -->
+    <c:if test="${not empty error}">
+        <div class="alert alert-danger">${error}</div>
+    </c:if>
 </div>
 <!-- Bootstrap JS and jQuery -->
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
