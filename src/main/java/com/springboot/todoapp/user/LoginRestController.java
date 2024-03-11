@@ -6,18 +6,16 @@ import org.springframework.security.authentication.UsernamePasswordAuthenticatio
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
-import org.springframework.stereotype.Controller;
-import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.*;
 
-@Controller
-public class LoginController {
+@RestController
+public class LoginRestController {
 
     private final AuthenticationManager authenticationManager;
     private final UserRepository userRepository;
     private final BCryptPasswordEncoder passwordEncoder;
 
-    public LoginController(AuthenticationManager authenticationManager, UserRepository userRepository, BCryptPasswordEncoder passwordEncoder) {
+    public LoginRestController(AuthenticationManager authenticationManager, UserRepository userRepository, BCryptPasswordEncoder passwordEncoder) {
         this.authenticationManager = authenticationManager;
         this.userRepository = userRepository;
         this.passwordEncoder = passwordEncoder;
@@ -44,17 +42,4 @@ public class LoginController {
 
     public record LoginRequest(String username, String password) {
     }
-
-    @RequestMapping(value = "login", method = RequestMethod.GET)
-    public String showLogin() {
-        return "login";
-    }
-
-    @RequestMapping(value = "register", method = RequestMethod.GET)
-    public String showRegister(ModelMap model) {
-        model.addAttribute("user", new User());
-        return "register";
-    }
-    
-
 }

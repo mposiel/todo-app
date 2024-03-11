@@ -16,8 +16,15 @@ import org.springframework.web.bind.annotation.SessionAttributes;
 public class WelcomeController {
     @RequestMapping(value="/", method = RequestMethod.GET)
     public String gotoWelcomePage(ModelMap model) {
-        model.put("name", getLoggedinUsername());
-        return "welcome";
+        Authentication authentication = SecurityContextHolder
+                .getContext()
+                .getAuthentication();
+        if (authentication != null && authentication.isAuthenticated()) {
+            model.put("name", getLoggedinUsername());
+            return "welcome";
+        } else {
+            return "redirect:/login";
+        }
     }
 
     private String getLoggedinUsername() {
@@ -26,6 +33,4 @@ public class WelcomeController {
                 .getAuthentication();
         return authentication.getName();
     }
-
-
 }

@@ -14,6 +14,7 @@ import org.springframework.security.config.annotation.authentication.builders.Au
 import org.springframework.security.config.annotation.web.PasswordManagementDsl;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
+import org.springframework.security.config.annotation.web.configurers.LogoutConfigurer;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
@@ -63,12 +64,12 @@ public class SpringSecurityConfiguration {
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
         http
                 .authorizeHttpRequests((authorize) -> authorize
-                        .requestMatchers("/login", "/register").permitAll()
+                        .requestMatchers("/login", "/WEB-INF/jsp/login.jsp", "/register", "/WEB-INF/jsp/register.jsp", "/WEB-INF/jsp/common/header.jspf").permitAll()
                         .anyRequest().authenticated()
                 ).formLogin(login -> login.loginPage("/login")
                         .defaultSuccessUrl("/todos", true)
                         .permitAll()
-                );
+                ).logout(LogoutConfigurer::permitAll);
 
         return http.build();
     }
