@@ -1,4 +1,4 @@
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1" pageEncoding="ISO-8859-1"%>
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1" pageEncoding="ISO-8859-1" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
@@ -27,12 +27,10 @@
         </div>
     </form>
     <p class="text-center">Don't have an account? <a href="<c:url value='/register' />">Register</a></p>
-    <!-- Display error message if it exists -->
     <c:if test="${not empty error}">
         <div class="alert alert-danger">${error}</div>
     </c:if>
 </div>
-<!-- Bootstrap JS and jQuery -->
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
 </body>
