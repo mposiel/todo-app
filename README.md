@@ -15,23 +15,4 @@ I developed this ToDo application as a means to practice various Java technologi
 - MySQL database server installed and running.
 - Maven installed on your system.
 
-## Setup:
-1. **Clone the Repository:**
-    ```
-    git clone https://github.com/yourusername/todo-app.git
-    ```
-
-2. **Database Configuration:**
-    - Create a MySQL database named `todo_db`.
-    - Update the `application.properties` file in `src/main/resources` with your MySQL database credentials.
-
-3. **Build and Run the Application:**
-    ```
-    cd todo-app
-    mvn spring-boot:run
-    ```
-
-4. **Accessing the Application:**
-    - Open your web browser and visit `http://localhost:8080`.
-
 
